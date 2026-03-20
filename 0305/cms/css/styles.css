@@ -3,7 +3,7 @@
 1: Core styles
 2: Typography
 3: Header and footer
-3: Layout
+4: Layout
 5: Social
 6: Forms + pagination
 7: Icons
@@ -28,18 +28,18 @@ Red   f23838
 
 body {
   margin: 0;
-  color: #666;
-  background-color: #f7f7f5;
+  color: #f5f5f5;
+  background-color: #000000;
 }
 
 a {
-  color: #666;
+  color: #f5f5f5;
 }
 
 a:hover,
 a.on,
 p.credit a:hover {
-  color: #a62d2d;
+  color: #00c4a0;
 }
 
 nav a:hover,
@@ -62,6 +62,7 @@ a {
 
 h1 {
   font-size: 1.8em;
+  color: #ffffff;
 }
 
 h1, h2 {
@@ -103,6 +104,15 @@ header  {
   background: #e9e8e6;
   min-height: 50px;
   margin-bottom: 2em;
+  border-bottom: 1px solid #333
+}
+
+header nav a, header div.logo a {
+  color: #000000;
+}
+
+header nav a:hover {
+  color: #00c4a0;
 }
 
 header > div.container {
@@ -260,15 +270,21 @@ nav .search-text {
 
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   clear: both;
   font-size: 0.8rem;
   text-align: right;
   color: #a39f9c;
   padding: 1rem 0;
+  background: #000000; /* matches your black background */
+  z-index: 100;
 }
 
 /**********************/
-/*   3: LAYOUT    */
+/*   4: LAYOUT    */
 /**********************/
 
 .container {    
@@ -309,8 +325,16 @@ main img {
   border-radius: 8px; 
 }
 
+article.summary {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 0.5em;
+}
+
 article.summary img {
   margin-bottom: 0.5em;
+  height: 10em;
+  object-fit: cover;
 }
 
 article.summary img:hover {
@@ -335,6 +359,26 @@ article.summary p {
   line-height: 1.5em;
 }
 
+.hero {
+  grid-column: 1 / -1; /* spans full width across all columns */
+  text-align: center;
+  padding: 2em 0;
+  border-bottom: 1px solid #333;
+  margin-bottom: 1em;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3em;
+}
+
+.hero p {
+  color: #aaaaaa;
+  font-size: 1.1em;
+}
 
 /* Styles are for top of category, member and admin list pages */
 .header {
@@ -344,8 +388,9 @@ article.summary p {
 }
 
 .header h1 {
-  color: #295073;
+  color: #00c4a0;
   border: 3px solid #295073;
+  border-color: #00c4a0;
   letter-spacing: 0.1em;
   display: inline-block;
   padding: .2em .5em;

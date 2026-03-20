@@ -17,10 +17,10 @@ $sql = "SELECT a.title, a.summary, a.content, a.created, a.category_id, a.member
         JOIN category   AS c ON a.category_id = c.id
         JOIN member     AS m ON a.member_id = m.id
         LEFT JOIN image AS i ON a.image_id = i.id
-    WHERE a.id - :id    AND a.published = 1;";
+    WHERE a.id = :id    AND a.published = 1;";
 
 $article = pdo($pdo, $sql, [$id])->fetch();
-if ($article) {
+if (!$article) {
     include 'page-not-found.php';
 }
 
@@ -31,9 +31,9 @@ $title = $article['title'];
 $description = $article['summary'];
 ?>
 <?php include 'includes/header.php'; ?>
-    <main class="article container" d="content">
+    <main class="article container" id="content">
         <section class="image">
-            <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.php') ?>"
+            <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.png') ?>"
                 alt="<?= html_escape($article['image_alt']) ?>">
         </section>
         <section class="text">

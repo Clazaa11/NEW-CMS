@@ -8,14 +8,14 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
-    <link rel="shortcut icon" type="image/png" href="img/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="img/favicon.jpg">
   </head>
   <body>
     <header>
       <div class="container">
         <a class="skip-link" href="#content">Skip to content</a>
         <div class="logo">
-          <a href="index.php"><img src="img/logo.png" alt="Creative Folk"></a>
+          <a href="index.php"><img src="img/logo.png" alt="GYMSHARK"></a>
         </div>
         <nav>
           <button id="toggle-navigation" aria-expanded="false">

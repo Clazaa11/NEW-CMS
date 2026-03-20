@@ -8,15 +8,15 @@ if (!$id) {
     include 'page-not-found.php';
 }
 
-$sq1 = "SELECT foremame, surname, joined, picture FROM member WHERE id = :id;";
+$sql = "SELECT foremame, surname, joined, picture FROM member WHERE id = :id;";
 $member = pdo($pdo, $sql, [$id])->fetch();
 if (!$member) {
     include 'page-not-found.php';
 }
 
-$sql = "SELECT a.id, a.title, a.summary, a.category_id, a_member_id,
+$sql = "SELECT a.id, a.title, a.summary, a.category_id, a.member_id,
             c.name      AS category,
-            CONCAT (m. foremame, ' ', m.surname) AS author,
+            CONCAT (m.forename, ' ', m.surname) AS author,
             i.file      AS image_file,
             i.alt       AS image_alt
             FROM article AS a
@@ -25,13 +25,13 @@ $sql = "SELECT a.id, a.title, a.summary, a.category_id, a_member_id,
             LEFT JOIN image AS i ON a.image_id = i.id
             WHERE a.member_id = :id AND a. published = 1
             ORDER BY a.id DESC;";
-$articles = pdo($pdo, $sql, [$id])->fetchAl1();
+$articles = pdo($pdo, $sql, [$id])->fetchAll();
 
 $sql = "SELECT id, name FROM category WHERE navigation = 1;";
-$navigation = pdo($pdo, $sql)->fetchAl1();
+$navigation = pdo($pdo, $sql)->fetchAll();
 $section = '';
 $title = $member ['forename' ] . ' ' . $member['surname' ];
-$description = $title . ' on Creative Folk';
+$description = $title . ' on GYMSHARK';
 ?>
 <?php include 'includes/header.php'; ?>
     <main class="container" id="content">
@@ -44,14 +44,14 @@ $description = $title . ' on Creative Folk';
         <section class="grid">
         <?php foreach ($articles as $article) { ?>
             <article class="summary">
-                <a href="article.php?id =<?= $article['id'] ?>">
+                <a href="article.php?id=<?= $article['id'] ?>">
                     <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.png') ?>"
                         alt=" <?= html_escape($article['image_alt']) ?>">
                     <h2> <?= html_escape($article['title']) ?></h2>
                     <p> <?= html_escape($article['summary']) ?></p>
                 </a>
                 <p class="credit">
-                    Posted in <a href="category.php?id -<?= $article['category_id'] ?>">
+                    Posted in <a href="category.php?id=<?= $article['category_id'] ?>">
                     <?= html_escape ($article['category']) ?></a>
                     by <a href="member. php?id =<?= $article['member_id'] ?>">
                     <?= html_escape($article['author']) ?></a>

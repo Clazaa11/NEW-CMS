@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1 class="logo">Creative folk</h1>
+<h1 class="logo">GYMSHARK</h1>
 
 <h1>Sorry! An error occurred. </hi>
 <p>The site owners have been notified and will fix the problem as soon as possible.</p>

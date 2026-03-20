@@ -1,7 +1,7 @@
 <?php
 $type = 'mysql';
 $server = 'localhost';
-$db = 'workout-guide';
+$db = 'article_guide';
 $port = '3306';
 $charset = 'utf8mb4';
 

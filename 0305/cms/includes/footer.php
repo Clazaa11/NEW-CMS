@@ -1,6 +1,6 @@
     <footer>
       <div class="container">
-        &copy; Creative Folk <?= date('Y'); ?>
+        &copy; Clarence V. Mendoza | CYB - 201 <?= date('Y'); ?>
       </div>
     </footer>
     <script src="js/site.js"></script>

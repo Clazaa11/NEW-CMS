@@ -8,7 +8,7 @@ if (!$id) {
     include 'page-not-found.php';
 }
 
-$sq1 = "SELECT 1d, name, description FROM category WHERE id =:id;";
+$sql = "SELECT id, name, description FROM category WHERE id =:id;";
 $category = pdo($pdo, $sql, [$id])->fetch();
 if (!$category) {
 include 'page-not-found.php';
@@ -43,7 +43,7 @@ $description = $category['description'];
     <section class="grid">
         <?php foreach ($articles as $article) { ?>
             <article class="summary">
-                <a href="article.php?id =<?= $article['id'] ?>">
+                <a href="article.php?id=<?= $article['id'] ?>">
                     <img src="uploads/<?= html_escape($article['image_file' ] ?? 'blank.png' ) ?>"
                         alt="<?= html_escape($article['image_alt']) ?>">
                     <h2> <?= html_escape($article['title']) ?></h2>

@@ -53,7 +53,7 @@ $sql = "SELECT id, name FROM category WHERE navigation = 1;"; // SQL to get cate
 $navigation  = pdo($pdo, $sql)->fetchAll();               // Get navigation categories
 $section     = '';                                        // Current category
 $title       = 'Search results for ' . $term;             // HTML <title> content
-$description = $title . ' on Creative Folk';              // Meta description content
+$description = $title . ' on GYMSHARK';              // Meta description content
 ?>
 <?php include 'includes/header.php'; ?>
   <main class="container" id="content">

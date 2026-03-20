@@ -11,7 +11,7 @@ $sql = "SELECT a.id, a.title, a.summary, a.category_id, a.member_id,
         FROM article AS a
         JOIN category AS c ON a.category_id = c.id
         JOIN member AS m ON a.member_id = m.id
-        LEFT JOIN image AS i ON a.image_id = i.d
+        LEFT JOIN image AS i ON a.image_id = i.id
         WHERE a.published = 1
         ORDER BY a.id DESC 
         LIMIT 6;";
@@ -21,15 +21,20 @@ $sql = "SELECT id, name FROM category WHERE navigation = 1;";
 $navigation = pdo($pdo, $sql)->fetchAll();
 
 $section = '';
-$title = 'Creative Folk';
-$description = 'A collective of creatives for hire';
+$title = 'GYMSHARK';
+$description = 'Your go-to guide for gym exercises, training tips, and workout breakdowns — built for lifters of all levels.';
 ?>
 <?php include 'includes/header.php'; ?>
     <main class="container grid" id="content">
-        <?php foreach (Sarticles as $article) { ?>
+        <div class="hero">
+            <h1>Train Smarter. Lift Better.</h1>
+            <p>Your go-to guide for gym exercises, training tips, and workout breakdowns — built for lifters of all levels.</p>
+        </div>
+        
+        <?php foreach ($articles as $article) { ?>
             <article class="summary">
-                <a href="article. php?id =<?= $article['id'] ?>">
-                    <img src="uploads/ <?= html_escape($article['image_file'] ?? 'blank.png') ?>"
+                <a href="article.php?id=<?= $article['id'] ?>">
+                    <img src="uploads/<?= html_escape($article['image_file'] ?? 'blank.png') ?>"
                         alt="<?= html_escape($article['image_alt']) ?>">
                     <h2><?= html_escape($article['title']) ?></h2>
                     <p><?= html_escape($article['summary']) ?></p>
